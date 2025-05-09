@@ -1,0 +1,368 @@
+@import url(./color.css);
+@import url(./font.css);
+
+/* font family ended */
+
+/* font classes */
+
+.bebas-regular-font {
+  font-family: "bebas-regular-font";
+}
+
+/* inter font start */
+.bold-font {
+  font-family: "bold-font";
+}
+.semiBold-font {
+  font-family: "semiBold-font";
+}
+.regular-font {
+  font-family: "regular-font";
+}
+.medium-font {
+  font-family: "medium-font";
+}
+.light-font {
+  font-family: "light-font";
+}
+
+/* color classes */
+.primary-color {
+  color: var(--primary-color);
+}
+.color-1 {
+  color: var(--color-1) !important;
+}
+.color-4 {
+  color: var(--color-4);
+}
+.color-3 {
+  color: var(--color-3);
+}
+.color-6 {
+  color: var(--color-6);
+}
+.color-7 {
+  color: var(--color-7);
+}
+
+/* color ended */
+
+/* background class */
+.primary-bg {
+  background-color: var(--primary-color);
+}
+.bg-0 {
+  background-color: var(--color-0) !important;
+}
+.bg-5 {
+  background-color: var(--color-5) !important;
+}
+.bg-6 {
+  background-color: var(--color-6) !important;
+}
+
+/* background class ended */
+
+/* border classes start */
+.borderCus {
+  border: 1.8px solid var(--color-2) !important;
+}
+.borderPrime {
+  border: 1.8px solid var(--primary-color) !important;
+}
+.border_6 {
+  border-bottom: 4px solid var(--color-6) !important;
+}
+.border_7 {
+  border: 1.8px solid var(--color-7) !important;
+}
+
+.border_8 {
+  border: 1.2px solid var(--color-7) !important;
+}
+
+/* border classes ended */
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+* {
+  -ms-overflow-style: none !important;
+}
+
+html {
+  scrollbar-width: none !important;
+}
+
+/*  */
+
+.services-gradient {
+  background: linear-gradient(0deg, #000000 0%, #000000 100%);
+  height: 100vh; /* Full height */
+  width: 100%; /* Full width */
+}
+
+.phon_inp input[type="tel"] {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.04);
+  width: 100% !important;
+  border-color: var(--primary-color2) !important;
+  border: 2px solid;
+  height: 2.6rem;
+}
+.phon_inp {
+  width: 100% !important;
+  height: 38px !important;
+}
+.react-tel-input .flag-dropdown {
+  border-radius: 12px 0 0 12px !important;
+  border-color: transparent !important;
+  background: transparent !important;
+}
+.react-tel-input .flag-dropdown .selected-flag:hover {
+  border-radius: 12px 0 0 12px !important;
+  border-color: transparent !important;
+  background: transparent !important;
+}
+
+.vi__character {
+  border-radius: 10px !important;
+  height: 3.5rem !important;
+  flex-grow: 0.4 !important;
+  font-size: 25px !important;
+}
+.character {
+  outline: none !important;
+  border: 2px solid var(--color-4) !important;
+}
+.character--selected {
+  outline: none !important;
+  border: 2px solid var(--color-3) !important;
+}
+.character--inactive {
+  background-color: var(--color-4) !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/* login btn css */
+.loginbtn {
+  border: 2px solid var(--color-5) !important;
+}
+
+/*  */
+
+.skelton_main {
+  height: 100% !important;
+  line-height: inherit !important;
+  border-radius: 20px !important;
+}
+
+/* slick slide css dot */
+/* Hide the number and style the dots */
+.slick-dots li {
+  margin: 0; /* Remove margin between dots */
+}
+
+.slick-dots li button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.slick-dots li button:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: block;
+  background-color: transparent !important;
+  border: 2px solid var(--primary-color) !important;
+  padding: 5px !important;
+
+  border-radius: 50%;
+  font-size: 0;
+}
+
+/* Style the active dot */
+.slick-dots li.slick-active button:before {
+  background-color: var(--primary-color) !important;
+}
+.slick-dots li {
+  margin-right: 10px !important;
+}
+
+/* Center the dots */
+.slick-dots {
+  position: absolute;
+  bottom: -32px;
+  display: flex !important;
+  flex-direction: row !important;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* slick slide css dot  ended*/
+
+/* steps css start */
+.cusmsteps .ant-steps-item-icon {
+  background-color: var(--primary-color) !important;
+}
+.cusmsteps .ant-steps-icon {
+  color: white !important;
+  font-family: "bebas-regular-font";
+}
+.cusmsteps .ant-steps-item-title {
+  font-family: "bold-font";
+  color: var(--color-0) !important;
+  font-size: 14px !important;
+}
+.cusmsteps .ant-steps-item-description {
+  font-family: "regular-font";
+  color: var(--color-7) !important;
+  font-size: 12px !important;
+}
+.cusmsteps .ant-steps-item-tail {
+  background-color: var(--primary-color) !important;
+  width: 2px !important;
+}
+/* steps css ended */
+
+/* btn css start */
+.primBnt:hover {
+  background-color: var(--primary-color) !important;
+}
+/* btn css ended */
+
+/* disable btn */
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+  background-color: var(--primary-color) !important;
+  opacity: 0.5 !important;
+}
+
+/* accordion css start */
+.cusAccordion .accordion-item .accordion-header .accordion-button:focus {
+  box-shadow: none !important;
+}
+.cusAccordion
+  .accordion-item
+  .accordion-header
+  .accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.cusAccordion .accordion-item {
+  border-radius: 12px !important;
+}
+.cusAccordion .accordion-item .accordion-header .accordion-button {
+  border-radius: 12px !important;
+  padding: 30px 20px !important;
+}
+.cusAccordion .accordion-item .accordion-header .accordion-button::after {
+  box-shadow: 0px 5px 16px 0px rgba(8, 15, 52, 0.06) !important;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+/* data table csss */
+
+.pagination {
+  position: relative !important;
+}
+
+.page-item .page-link {
+  padding: 8px 16px !important;
+  margin-right: 8px !important;
+  border: transparent !important;
+  font-family: "medium-font" !important;
+  font-size: 16px !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  color: var(--color-1) !important;
+}
+.page-item.active .page-link {
+  background-color: #e5f0ff !important;
+  color: var(--primary-color) !important;
+}
+
+.page-item.prev-item,
+.page-item.next-item {
+  border: 1.29px solid #c5c5d3 !important;
+  color: #fff !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  /* padding-left: 8px !important; */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  /* font-size: 14px !important; */
+  /* background-color: #f4f4f4 !important; */
+  margin-bottom: 0px !important;
+  border-radius: 8px !important;
+}
+
+.page-item.next-item {
+  right: 20px !important;
+  position: absolute !important;
+  top: 20px !important;
+  margin-left: 30px !important ;
+}
+
+.page-item.prev-item {
+  left: 0px !important;
+  position: absolute !important;
+  top: 20px !important;
+  margin-left: 30px !important ;
+}
+
+.page-item.prev-item.disabled,
+.page-item.next-item.disabled {
+  background-color: #f4f4f4 !important;
+}
+
+.ddvZdT {
+  font-size: 14px !important;
+  font-family: "medium-font" !important;
+  color: red !important;
+}
+.rdt_TableRow {
+  padding: 10px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: black !important;
+}
+
+.usuuu h3 {
+  font-size: 1.5rem;
+  color: #333; /* Adjust color as needed */
+  font-weight: bold;
+}
+
+.usuuu h4 {
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: semi-bold;
+}
+
+.usuuu p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.usuuu ul {
+  padding-left: 1.5rem;
+}
+
+.usuuu li {
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
+}

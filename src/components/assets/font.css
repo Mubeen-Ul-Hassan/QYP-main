@@ -1,0 +1,28 @@
+/* font family start */
+
+@font-face {
+  font-family: "bebas-regular-font";
+  src: url(../../app/fonts/BebasNeue-Regular.ttf);
+}
+
+/* Poppins font  family */
+@font-face {
+  font-family: "light-font";
+  src: url(../../app/fonts/Poppins-Light.ttf);
+}
+@font-face {
+  font-family: "regular-font";
+  src: url(../../app/fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: "medium-font";
+  src: url(../../app/fonts/Poppins-Medium.ttf);
+}
+@font-face {
+  font-family: "bold-font";
+  src: url(../../app/fonts/Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: "semiBold-font";
+  src: url(../../app/fonts/Poppins-SemiBold.ttf);
+}
