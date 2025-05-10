@@ -22,13 +22,14 @@ const Banner = () => {
                       {t("bannerHead")}
                     </h4>
                     <p className="color-4 mt-3 max-w-[30rem]  text-[1rem] medium-font">
-                    {t("bannersbHead")}
+                      {t("bannersbHead")}
                     </p>
                     <Link
                       href={"/servicess"}
                       className="rounded-[10px] mt-3 text-[1.1rem] gap-2 flex items-center cursor-pointer primary-bg py-[10px] px-[20px] text-white text-center w-fit medium-font"
                     >
-                   {t("getStarted")}<IoArrowForwardCircleOutline />
+                      {t("getStarted")}
+                      <IoArrowForwardCircleOutline />
                     </Link>
                   </div>
                 </section>

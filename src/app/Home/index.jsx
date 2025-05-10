@@ -42,7 +42,14 @@ const Page = () => {
 
       <Container fluid="xxl" className="mb-5">
         <Row className="g-3">
-          <Col className="flex items-center justify-center" xs={6} sm={4} md={4} lg={3} xl={3}>
+          <Col
+            className="flex items-center justify-center"
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            xl={3}
+          >
             <Image
               className="h-[7rem] w-[7rem] object-contain"
               src={company9}
@@ -50,49 +57,98 @@ const Page = () => {
             />
           </Col>
 
-          <Col className="flex items-center justify-center" xs={6} sm={4} md={4} lg={3} xl={3}>
+          <Col
+            className="flex items-center justify-center"
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            xl={3}
+          >
             <Image
               className="h-[7rem] w-[7rem] object-contain"
               src={company3}
               alt=""
             />
           </Col>
-          <Col className="flex items-center justify-center" xs={6} sm={4} md={4} lg={3} xl={3}>
+          <Col
+            className="flex items-center justify-center"
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            xl={3}
+          >
             <Image
               className="h-[7rem] w-[7rem] object-contain"
               src={company4}
               alt=""
             />
           </Col>
-          <Col className="flex items-center justify-center" xs={6} sm={4} md={4} lg={3} xl={3}>
+          <Col
+            className="flex items-center justify-center"
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            xl={3}
+          >
             <Image
               className="h-[7rem] w-[7rem] object-contain"
               src={company2}
               alt=""
             />
           </Col>
-          <Col className="flex items-center justify-center" xs={6} sm={4} md={4} lg={3} xl={3}>
+          <Col
+            className="flex items-center justify-center"
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            xl={3}
+          >
             <Image
               className="h-[7rem] w-[7rem] object-contain"
               src={company5}
               alt=""
             />
           </Col>
-          <Col className="flex items-center justify-center" xs={6} sm={4} md={4} lg={3} xl={3}>
+          <Col
+            className="flex items-center justify-center"
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            xl={3}
+          >
             <Image
               className="h-[7rem] w-[7rem] object-contain"
               src={company6}
               alt=""
             />
           </Col>
-          <Col className="flex items-center justify-center" xs={6} sm={4} md={4} lg={3} xl={3}>
+          <Col
+            className="flex items-center justify-center"
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            xl={3}
+          >
             <Image
               className="h-[7rem] w-[7rem] object-contain"
               src={company7}
               alt=""
             />
           </Col>
-          <Col className="flex items-center justify-center" xs={6} sm={4} md={4} lg={3} xl={3}>
+          <Col
+            className="flex items-center justify-center"
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            xl={3}
+          >
             <Image
               className="h-[7rem] w-[7rem] object-contain"
               src={company8}
