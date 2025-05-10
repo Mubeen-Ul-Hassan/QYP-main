@@ -6,7 +6,6 @@ import { BsArrowRight } from "react-icons/bs";
 import Image from "next/image";
 import {
   AppleStoreIcon,
-  company1,
   company2,
   company3,
   company4,
@@ -27,7 +26,11 @@ import HomeService from "./HomeService";
 import ByHere from "./ByHere";
 import LatesProject from "./LatesProject";
 import FAQ from "./FAQ";
+import Marquee from "react-fast-marquee";
+import { useTranslation } from "react-i18next";
+
 const Page = () => {
+  const { t } = useTranslation();
   return (
     <>
       {/* home banner */}
@@ -40,121 +43,83 @@ const Page = () => {
       <LatesProject />
       {/* <FAQ /> */}
 
-      <Container fluid="xxl" className="mb-5">
-        <Row className="g-3">
-          <Col
-            className="flex items-center justify-center"
-            xs={6}
-            sm={4}
-            md={4}
-            lg={3}
-            xl={3}
-          >
-            <Image
-              className="h-[7rem] w-[7rem] object-contain"
-              src={company9}
-              alt=""
-            />
-          </Col>
+      <div className="w-full flex items-center justify-center">
+        <h1 className="text-[2rem] semiBold-font w-fit">{t("marqueeTitle")}</h1>
+      </div>
 
-          <Col
-            className="flex items-center justify-center"
-            xs={6}
-            sm={4}
-            md={4}
-            lg={3}
-            xl={3}
+      <Container>
+        <Row>
+          <Marquee
+            gradient={true}
+            autoFill={true}
+            pauseOnHover
+            className="flex justify-center items-center"
           >
-            <Image
-              className="h-[7rem] w-[7rem] object-contain"
-              src={company3}
-              alt=""
-            />
-          </Col>
-          <Col
-            className="flex items-center justify-center"
-            xs={6}
-            sm={4}
-            md={4}
-            lg={3}
-            xl={3}
-          >
-            <Image
-              className="h-[7rem] w-[7rem] object-contain"
-              src={company4}
-              alt=""
-            />
-          </Col>
-          <Col
-            className="flex items-center justify-center"
-            xs={6}
-            sm={4}
-            md={4}
-            lg={3}
-            xl={3}
-          >
-            <Image
-              className="h-[7rem] w-[7rem] object-contain"
-              src={company2}
-              alt=""
-            />
-          </Col>
-          <Col
-            className="flex items-center justify-center"
-            xs={6}
-            sm={4}
-            md={4}
-            lg={3}
-            xl={3}
-          >
-            <Image
-              className="h-[7rem] w-[7rem] object-contain"
-              src={company5}
-              alt=""
-            />
-          </Col>
-          <Col
-            className="flex items-center justify-center"
-            xs={6}
-            sm={4}
-            md={4}
-            lg={3}
-            xl={3}
-          >
-            <Image
-              className="h-[7rem] w-[7rem] object-contain"
-              src={company6}
-              alt=""
-            />
-          </Col>
-          <Col
-            className="flex items-center justify-center"
-            xs={6}
-            sm={4}
-            md={4}
-            lg={3}
-            xl={3}
-          >
-            <Image
-              className="h-[7rem] w-[7rem] object-contain"
-              src={company7}
-              alt=""
-            />
-          </Col>
-          <Col
-            className="flex items-center justify-center"
-            xs={6}
-            sm={4}
-            md={4}
-            lg={3}
-            xl={3}
-          >
-            <Image
-              className="h-[7rem] w-[7rem] object-contain"
-              src={company8}
-              alt=""
-            />
-          </Col>
+            <Col className="px-4">
+              <Image
+                src={company2}
+                width={200}
+                height={60}
+                alt="company 1"
+              ></Image>
+            </Col>
+            <Col className="px-4">
+              <Image
+                src={company4}
+                width={200}
+                height={60}
+                alt="company 2"
+              ></Image>
+            </Col>
+            <Col className="px-4">
+              <Image
+                src={company3}
+                width={200}
+                height={60}
+                alt="company 3"
+              ></Image>
+            </Col>
+            <Col className="px-4">
+              <Image
+                src={company5}
+                width={200}
+                height={60}
+                alt="company 4"
+              ></Image>
+            </Col>
+            <Col className="px-4">
+              <Image
+                src={company6}
+                width={200}
+                height={60}
+                alt="company 4"
+              ></Image>
+            </Col>
+            <Col className="px-4">
+              <Image
+                src={company7}
+                width={200}
+                height={60}
+                alt="company 4"
+              ></Image>
+            </Col>
+            <Col className="px-4">
+              <Image
+                src={company8}
+                width={200}
+                height={60}
+                alt="company 4"
+              ></Image>
+            </Col>
+            <Col className="px-4">
+              <Image
+                src={company9}
+                width={200}
+                height={60}
+                alt="company 4"
+              ></Image>
+            </Col>
+          </Marquee>
         </Row>
       </Container>
     </>

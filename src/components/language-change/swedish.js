@@ -38,6 +38,7 @@ export default {
   instrumentNotFound: "Ingen utrustning hittades",
   latesProjectTitle: "Vårt senaste projekt",
   latesProjectBtn: "Visa alla projekt",
+  marqueeTitle: "Vi arbetar med de bästa",
 
   // fotter
   footerData:

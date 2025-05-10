@@ -39,7 +39,7 @@ export default {
   instrumentNotFound: "No instruments Found",
   latesProjectTitle: "Our Latest Project",
   latesProjectBtn: "See All Project",
-
+  marqueeTitle: "We Work With the Best",
   // fotter
   footerData:
     " Qyp was established to provide exceptional concrete services tailored to meet each client's unique needs. Based in Lieto, we specialize in concrete grinding, cutting, and chipping, serving both homeowners and businesses.",

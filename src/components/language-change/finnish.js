@@ -38,6 +38,7 @@ export default {
   instrumentNotFound: "Ei löydetty laitteita",
   latesProjectTitle: "Viimeisin projektimme",
   latesProjectBtn: "Näytä kaikki projektit",
+  marqueeTitle: "Teemme yhteistyötä parhaiden kanssa",
 
   // fotter
   footerData:
