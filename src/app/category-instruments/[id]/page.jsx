@@ -3,7 +3,6 @@
 "use client";
 import ApiFile from "@/components/ApiFunction/ApiFile";
 import useApiClient from "@/components/ApiFunction/useApiClient";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
 import debounce from "debounce";
 import { useParams, useRouter } from "next/navigation";
@@ -100,11 +99,6 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs
-        breadName={"Product"}
-        sbBreadName={categoryData[0]?.category?.name}
-      />
-
       <Container fluid="xxl" className="mb-5 relative">
         <Row className="g-4">
           {isLoading ? (

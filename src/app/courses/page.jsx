@@ -2,59 +2,47 @@
 "use client";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { BsPatchCheck } from "react-icons/bs";
-import {
-  FaTools,
-  FaHandsHelping,
-  FaBriefcase,
-  FaCertificate,
-  FaRegFileAlt,
-  FaHammer,
-  FaLevelUpAlt,
-  FaCut,
-  FaDrill,
-  FaToolbox,
-  FaWrench,
-} from "react-icons/fa";
-
-import { HiBadgeCheck } from "react-icons/hi";
-import { RiPaintBrushLine } from "react-icons/ri";
-import { GiShinyStone, GiAirplaneArrival } from "react-icons/gi";
+import { motion } from "framer-motion";
+import { VscTools } from "react-icons/vsc";
+import { HiOutlineCheckBadge } from "react-icons/hi2";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { EducationImg } from "@/components/assets/icons/icon";
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
+import { LiaHandsHelpingSolid } from "react-icons/lia";
+import { LiaChalkboardTeacherSolid } from "react-icons/lia";
+import { BsBriefcase } from "react-icons/bs";
 const Page = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const programData = [
     {
       id: 1,
-      title: "Comprehensive Training",
+      title: "Upskilling",
       description:
         "Learn from industry experts through detailed modules covering everything from concrete grinding to epoxy removal.",
-      icon: <FaTools />, // Example icon
+      icon: <VscTools />, // Example icon
     },
     {
       id: 2,
       title: "Hands-On Experience",
       description:
         "Get practical experience with cutting-edge tools and techniques used in real-world projects.",
-      icon: <FaHandsHelping />, // Example icon
+      icon: <LiaHandsHelpingSolid />, // Example icon
     },
     {
       id: 3,
       title: "Career Opportunities",
       description:
         "Upon completing the program, stand out with an opportunity to intern with QYp, gaining invaluable field experience.",
-      icon: <FaBriefcase />, // Example icon
+      icon: <BsBriefcase />, // Example icon
     },
     {
       id: 4,
       title: "Certification",
       description:
         "Earn a professional certification that validates your expertise and boosts your career prospects.",
-      icon: <HiBadgeCheck />, // Example icon
+      icon: <HiOutlineCheckBadge />, // Example icon
     },
   ];
 
@@ -73,7 +61,7 @@ const Page = () => {
     },
     {
       id: 3,
-      title: "Diamond Concrete Cutting",
+      title: "Concrete Cutting",
       description:
         "Gain expertise in precise, dust-free cutting for various applications.",
     },
@@ -143,66 +131,94 @@ const Page = () => {
     // Ensure you pass the item title in the URL
     router.push(`courcesForm?title=${item?.title}`);
   };
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
   return (
     <>
-      <Container fluid="xxl" className="mb-5 relative">
-        <Row>
-          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-            <h4 className="semiBold-font color-1 text-[1.2rem]">
+      <motion.section
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        className="relative bg-gradient-to-r from-black to-gray-800 text-white py-24 overflow-hidden"
+      >
+        <div className="absolute inset-0 opacity-100">
+          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1000')] bg-cover bg-center"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h1
+              className="text-4xl md:text-5xl font-bold mb-6"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
               {t("learnHead0")}
-            </h4>
-            <p className="regular-font color-4 mt-2">{t("learnsbHead0")}</p>
-          </Col>
-          <Col
-            className="flex justify-center align-center"
-            xs={12}
-            sm={12}
-            md={6}
-            lg={6}
-            xl={6}
-          >
-            <Image src={EducationImg} alt={EducationImg} />
-          </Col>
-        </Row>
+            </motion.h1>
+            <motion.p
+              className="text-lg md:text-xl opacity-90 mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              {t("learnsbHead0")}
+            </motion.p>
+          </div>
+        </div>
+      </motion.section>
+      <Container fluid="xxl" className="mb-5 relative">
         <section className="mt-5">
-          <h5 className="text-center bold-font text-[1.2rem]">
+          <h5 className="text-3xl md:text-4xl text-center bold-font">
             {t("joinHead0")}
           </h5>
           <h5 className="text-center mt-2 color-4 regular-font">
             {t("joinsbHead0")}
           </h5>
-
+          {/* Program Section */}
           <Row className="g-3 mt-5">
             {programData?.map((item, index) => (
               <Col key={index} xs={12} sm={6} md={4} lg={3} xl={3}>
-                <section className="shadowC cursor-pointer h-100 rounded-[10px] py-[13px] px-[15px] transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                  <div className="border_8 rounded-[10px] m-auto mb-3 w-fit py-[10px] px-[10px]">
-                    <span className="color-1 text-[2rem]">{item?.icon}</span>
+                <section className="shadow cursor-pointer h-72 rounded-[10px] py-[13px] px-[15px] transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="mx-auto my-4 w-fit py-[10px] px-[10px]">
+                    <span className="color-1 text-[4rem]">{item?.icon}</span>
                   </div>
-                  <h4 className="semiBold-font color-1 text-[1.2rem] text-center">
+                  <h4 className="semiBold-font color-1 text-[1.2rem] text-center border-b border-gray-200 pb-3 mb-4">
                     {item?.title}
                   </h4>
-                  <h4 className="regular-font text-[0.8rem] color-4 mt-2">
+                  <h4 className="regular-font text-[0.8rem] color-4 mt-2 text-gray-600 text-center mb-12">
                     {item?.description}
                   </h4>
                 </section>
               </Col>
             ))}
           </Row>
+          {/* Program Section End */}
         </section>
         <section className="mt-5">
-          <h5 className="text-center bold-font text-[1.2rem]">
+          <h5 className="text-3xl md:text-4xl text-center bold-font">
             {t("courceHead0")}
           </h5>
           <h5 className="text-center mt-2 color-4 regular-font">
             {t("courcesbHead0")}
           </h5>
 
-          <Row className="g-4 mt-5">
+          <Row className="g-3 mt-5">
             {program?.map((item, index) => (
               <Col key={index} xs={12} sm={6} md={4} lg={3} xl={3}>
-                <section className="shadowC cursor-pointer h-100 rounded-[10px] py-[13px] px-[15px] transform transition-transform duration-500 hover:scale-105 hover:shadow-xl hover:-translate-y-3 hover:bg-gradient-to-t">
-                  <h4 className="semiBold-font color-1 text-[1.2rem] text-center">
+                <section className="shadow cursor-pointer h-80 rounded-[10px] py-[13px] px-[15px] transform transition-transform duration-500 hover:scale-105 hover:shadow-xl hover:-translate-y-3 hover:bg-gradient-to-r flex flex-col justify-evenly">
+                  <div className="mx-auto my-4 w-fit py-[10px] px-[10px]">
+                    <span className="color-1 text-[4rem]">
+                      <LiaChalkboardTeacherSolid />
+                    </span>
+                  </div>
+                  <h4 className="semiBold-font color-1 text-[1.2rem] text-center border-b border-gray-200 pb-3 mb-4">
                     {item?.title}
                   </h4>
                   <h4 className="regular-font text-[0.8rem] color-4 mt-2">
@@ -222,8 +238,12 @@ const Page = () => {
             ))}
           </Row>
         </section>
+
         <section className="mt-5">
-          <h5 className="bold-font text-[1.2rem]"> {t("programtext0")}</h5>
+          <h5 className="semiBold-font color-1 text-[1.2rem]">
+            {" "}
+            {t("programtext0")}
+          </h5>
           <ul className="mt-3">
             {programHighlights?.map((item, index) => (
               <div key={index} className="flex items-baseline mb-2 gap-2">
@@ -235,14 +255,16 @@ const Page = () => {
             ))}
           </ul>
         </section>
-        <section className="mt-5">
-          <h5 className="bold-font text-[1.2rem]">{t("futuretet")}</h5>
-          <p className="color-4 regular-font text-[0.9rem]">
-            {t("futuretetDes")}
-          </p>
-        </section>
-        {/* apply section */}
       </Container>
+
+      <section className="py-16 bg-black text-white px-4">
+        <h5 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+          {t("futuretet")}
+        </h5>
+        <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto text-center">
+          {t("futuretetDes")}
+        </p>
+      </section>
     </>
   );
 };

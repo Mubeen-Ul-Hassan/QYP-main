@@ -168,7 +168,7 @@ export default {
   locationtet: "Location",
   locationtetDes:
     "Training sessions are held at our state-of-the-art facility, with practical projects in real-world settings.",
-  internshp0: "Internship Pathway",
+  internshp0: "Internship",
   internshp0Des:
     "Graduates have the opportunity to join QYp as interns, working alongside experts on commercial, industrial, and residential projects.",
   futuretet: "Your Future with QYp",

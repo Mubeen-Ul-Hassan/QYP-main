@@ -177,7 +177,10 @@ const ServicesPage = () => {
                 {t("servicePageTitle")}
               </h5>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-6 max-w-2xl mx-auto">
+            <h2
+              className="
+             font-bold text-gray-900 mt-6 max-w-2xl mx-auto"
+            >
               {t("servicePagesbTitle")}
             </h2>
           </motion.div>
