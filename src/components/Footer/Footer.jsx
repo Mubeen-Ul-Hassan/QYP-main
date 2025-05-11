@@ -46,24 +46,24 @@ const Footer = () => {
 
   return (
     <footer className="bg-0 w-full body-font">
-      <div className="flex justify-center items-center mx-auto px-5 pt-12 pb-12">
+      <div className="justify-center  items-center mx-auto px-1 md:px-5 md:pt-12 pb-12 flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-full px-4 sm:px-0 sm:w-72 flex-shrink-0 md:mx-0 sm:text-center md:text-left">
           <a className="">
             <Image
-              className="h-[7rem] w-[14rem] object-contain"
+              className="h-[7rem] w-[14rem] object-contain mx-auto md:mx-0"
               src={Logo}
               alt=""
             />
           </a>
           <p className="color-4 light-font text-[0.8rem]">{t("footerData")}</p>
-          <div className="flex gap-6 text-xl mt-3 *:cursor-pointer">
+          <div className="flex gap-6 text-xl mt-3 *:cursor-pointer mb-10 md:mb-0">
             <FaFacebookSquare className="hover:scale-110" />
             <FaInstagram className="hover:scale-110" />
             <FaTiktok className="hover:scale-110" />
             <FaPinterest className="hover:scale-110" />
           </div>
         </div>
-        <div className="h-full flex justify-center flex-wrap md:pl-20 md:mt-0 mt-50 md:text-left sm:text-center">
+        <div className="h-full flex justify-center flex-wrap md:pl-20 md:mt-0 mt-50 md:text-left sm:text-center gap-7 md:gap-0">
           <div className="lg:w-1/3 md:w-1/2 w-full px-4">
             <div className="flex flex-col">
               <h2 className="text-[1.1rem] semiBold-font w-fit pb-2">
