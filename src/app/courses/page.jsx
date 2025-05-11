@@ -155,7 +155,7 @@ const Page = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-2xl md:text-5xl font-bold mb-6"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -163,7 +163,7 @@ const Page = () => {
               {t("learnHead0")}
             </motion.h1>
             <motion.p
-              className="text-lg md:text-xl opacity-90 mb-8"
+              className="text-base md:text-xl opacity-90 mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
@@ -175,10 +175,10 @@ const Page = () => {
       </motion.section>
       <Container fluid="xxl" className="mb-5 relative">
         <section className="mt-5">
-          <h5 className="text-3xl md:text-4xl text-center bold-font">
+          <h5 className="text-2xl md:text-4xl text-center bold-font">
             {t("joinHead0")}
           </h5>
-          <h5 className="text-center mt-2 color-4 regular-font">
+          <h5 className="text-base md:text-xl text-center mt-2 color-4 regular-font">
             {t("joinsbHead0")}
           </h5>
           {/* Program Section */}
@@ -258,10 +258,10 @@ const Page = () => {
       </Container>
 
       <section className="py-16 bg-black text-white px-4">
-        <h5 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+        <h5 className="text-2xl md:text-4xl font-bold mb-6 text-center">
           {t("futuretet")}
         </h5>
-        <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto text-center">
+        <p className="text-base md:text-xl opacity-90 mb-8 max-w-2xl mx-auto text-center">
           {t("futuretetDes")}
         </p>
       </section>
