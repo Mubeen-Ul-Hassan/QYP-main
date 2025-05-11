@@ -138,13 +138,13 @@ const HeaderComponent = () => {
         id="navbar"
       >
         <Container fluid="xxl">
-          <Navbar.Brand className="lg:max-w-[50px] lg:w-full">
+          <Navbar.Brand className="lg:max-w-[80px] lg:w-full">
             <Link href="/">
               <>
                 <Image
                   src={Logo}
                   alt=""
-                  className="w-[3rem] h-[2rem] object-contain"
+                  className="w-[5rem] h-[2rem] object-contain"
                 />
               </>
             </Link>

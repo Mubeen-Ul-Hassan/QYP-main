@@ -82,9 +82,9 @@ export default {
   projectDEtail: "Project Detail",
 
   // contact us page
-  contactPageTitle: "We're here For you",
+  contactPageTitle: "Get In Touch",
   contactPageDes:
-    "Always dedicated and devoted. Qyp was established to provide exceptional concrete services tailored to each client's unique needs. Based in Lieto, we specialize in concrete grinding, cutting, and chipping, serving both homeowners and businesses. Our skilled team shares a strong commitment to quality and customer satisfaction. We focus on innovation, continuously adapting our tools and materials to perfectly match the specific needs of our clients. This dedication to customization sets us apart, ensuring consistently outstanding results. We see every project as a partnership, working together to deliver safe, effective solutions. Whether for a small home renovation or a large-scale construction project, Qyp brings the expertise and resources needed to bring your vision to life. Thank you for considering Qyp for your concrete needs, and we look forward to the opportunity to exceed your expectations.”",
+    "We're here to help with all your construction product needs. Reach out to our team for expert advice, product information, or service inquiries.",
   phoneText: "Phone",
   addressText: "Address",
   mailText: "Services Email",

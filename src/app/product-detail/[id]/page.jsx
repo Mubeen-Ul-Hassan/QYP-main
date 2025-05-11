@@ -3,7 +3,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import { Autoplay, Navigation } from "swiper";
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -126,13 +125,6 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs
-        homeLink={"QYP"}
-        allPro={"all-products"}
-        breadName={"Product"}
-        sbBreadName={dataProduct?.category?.name}
-        navigateLink={dataProduct}
-      />
       <Container className="mb-5" fluid="xxl">
         {isLoading ? (
           <>

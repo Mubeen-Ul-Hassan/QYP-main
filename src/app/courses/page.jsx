@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BsPatchCheck } from "react-icons/bs";
@@ -146,7 +145,6 @@ const Page = () => {
   };
   return (
     <>
-      <BreadCrumbs breadName={"Courses"} />
       <Container fluid="xxl" className="mb-5 relative">
         <Row>
           <Col xs={12} sm={12} md={6} lg={6} xl={6}>

@@ -15,18 +15,17 @@ import {
   RightGradient,
   TitleIcon,
 } from "@/components/assets/icons/icon";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import Image from "next/image";
 import React, { useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import Slider from "react-slick";
-import { FaCheck, FaQuoteLeft } from "react-icons/fa6";
 import { FaQuoteRight } from "react-icons/fa6";
 import Link from "next/link";
 import Blog from "@/components/Blog/Blog";
 import ProjectPage from "../project-page/projectPage";
 import { useTranslation } from "react-i18next";
+import { BiSolidRightArrow } from "react-icons/bi";
 
 const Page = () => {
   const { t } = useTranslation();
@@ -120,21 +119,20 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={t("itemAboutUs")} />
       <Container fluid="xxl" className="mt-[5rem] mb-[4rem]">
         <section className="mb-5 mt-5">
           <div className=" h-[100%] grid">
             <div className="flex">
-              <div className="w-2/4 max-md:hidden">
+              <div className="w-2/4 max-md:hidden border-2 border-black p-5">
                 <Image
                   src={HomeAboutImg}
-                  className=" object-contain h-[30rem] w-[100%]"
+                  className="object-contain h-[38rem]"
                   alt=""
                 />
               </div>
               <div className="w-2/4 max-md:w-[100%]">
                 <section className=" px-[40px]">
-                  <div className="relative">
+                  <div className="relative border-2 border-black">
                     <Image
                       className="h-[5rem] w-[24rem]"
                       src={aboutimg}
@@ -147,7 +145,7 @@ const Page = () => {
                   <h4 className="color-1 bold-font text-[2rem] mt-2">
                     {t("aboutUsPageHead")}
                   </h4>
-                  <p className="regular-font color-4 text-[0.8rem] mb-3 leading-6">
+                  <p className="regular-font color-4 text-[0.8rem] mt-2 mb-3 leading-6">
                     {t("aboutUsPageDes1")}
                   </p>
                   <p className="regular-font color-4 text-[0.8rem] mb-3 leading-6">
@@ -158,25 +156,25 @@ const Page = () => {
                   </p>
                   <div className="flex flex-wrap gap-6 mt-3">
                     <div className="flex gap-4 items-center">
-                      <FaCheck className="color-4 text-[1.2rem]" />
+                      <BiSolidRightArrow className="color-4 text-[1.2rem]" />
                       <h4 className="color-1 text-[1.2rem] semiBold-font">
                         {t("aboutUsKey1")}
                       </h4>
                     </div>
                     <div className="flex gap-4 items-center">
-                      <FaCheck className="color-4 text-[1.2rem]" />
+                      <BiSolidRightArrow className="color-4 text-[1.2rem]" />
                       <h4 className="color-1 text-[1.2rem] semiBold-font">
                         {t("aboutUsKey2")}
                       </h4>
                     </div>
                     <div className="flex gap-4 items-center">
-                      <FaCheck className="color-4 text-[1.2rem]" />
+                      <BiSolidRightArrow className="color-4 text-[1.2rem]" />
                       <h4 className="color-1 text-[1.2rem] semiBold-font">
                         {t("aboutUsKey3")}
                       </h4>
                     </div>
                     <div className="flex gap-4 items-center">
-                      <FaCheck className="color-4 text-[1.2rem]" />
+                      <BiSolidRightArrow className="color-4 text-[1.2rem]" />
                       <h4 className="color-1 text-[1.2rem] semiBold-font">
                         {t("aboutUsKey4")}
                       </h4>

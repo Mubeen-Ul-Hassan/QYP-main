@@ -1,45 +1,34 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import ApiFile from "@/components/ApiFunction/ApiFile";
-import useApiClient from "@/components/ApiFunction/useApiClient";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
-import { selectblog } from "@/components/Redux/Slices/blogSlice";
-import debounce from "debounce";
-import { Autoplay, Navigation, Zoom } from "swiper";
+
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import debounce from "debounce";
+import { message, Skeleton } from "antd";
+import { Gallery, Item } from "react-photoswipe-gallery";
+import "photoswipe/dist/photoswipe.css";
+
+// Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/zoom";
-// Import Swiper styles
+import { Autoplay, Navigation, Zoom } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import ImageLightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
-import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { message, Skeleton } from "antd";
+import "swiper/css/zoom";
+
+// Local imports
+import ApiFile from "@/components/ApiFunction/ApiFile";
+import useApiClient from "@/components/ApiFunction/useApiClient";
 import { selectService } from "@/components/Redux/Slices/serviceSlice";
-import { useTranslation } from "react-i18next";
-const page = () => {
+
+const ProjectDetailsPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const { projectGetbyID } = ApiFile;
   const { getData, header1 } = useApiClient();
-  const [data, setData] = useState("");
+  const [data, setData] = useState(null);
   const serviceGet = useSelector(selectService);
-  const [isLoading, setIsLoading] = useState([]);
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
-
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
-    setIsOpen(true);
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   const HandleBlog = debounce(() => {
     setIsLoading(true);
@@ -72,102 +61,117 @@ const page = () => {
     }
   }, [serviceGet]);
 
+  if (isLoading) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <Skeleton active paragraph={{ rows: 10 }} />
+      </div>
+    );
+  }
+
   return (
-    <>
-      <BreadCrumbs breadName={t("projectDEtail")} />
+    <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="bg-white overflow-hidden">
+        <div className="p-6 md:p-8">
+          {/* Gallery Section */}
+          <div className="mb-10">
+            <Gallery>
+              <div className="grid grid-cols-2 gap-4">
+                {/* Main Swiper Gallery */}
+                <Swiper
+                  spaceBetween={10}
+                  navigation
+                  autoplay={{ delay: 4000 }}
+                  modules={[Autoplay, Navigation, Zoom]}
+                  className="w-full rounded-lg mb-4"
+                  zoom={true}
+                >
+                  {data?.images?.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="swiper-zoom-container">
+                        <Item
+                          original={image}
+                          thumbnail={image}
+                          width={1200}
+                          height={800}
+                        >
+                          {({ ref, open }) => (
+                            <img
+                              ref={ref}
+                              onClick={open}
+                              src={image || "/placeholder.svg"}
+                              alt={`${data?.title || "Project"} - Image ${
+                                index + 1
+                              }`}
+                              className="h-[400px] w-full object-contain cursor-pointer rounded-lg"
+                            />
+                          )}
+                        </Item>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
-      <Container className="mb-5" fluid="xxl">
-        {isLoading ? (
-          <>
-            <div>
-              <Skeleton />
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="p-6 bg-gray-100 rounded-2xl shadow-lg space-y-6">
-              <h1 className="text-[2rem] w-100 semiBold-font mb-3 text-center capitalize">
-                {data?.title}
-              </h1>
-              <Swiper
-                spaceBetween={10}
-                navigation
-                autoplay={{ delay: 4000 }}
-                modules={[Autoplay, Navigation, Zoom]}
-                className="w-full max-w-lg customSlide00"
-                zoom={true}
-              >
-                {data?.images?.map((image, index) => (
-                  <SwiperSlide key={index}>
-                    <div className="swiper-zoom-container">
-                      <img
-                        src={image}
-                        className="h-[25rem] rounded-[10px] w-full object-contain cursor-pointer"
-                        alt={`slide-${index}`}
-                        onClick={() => {
-                          setPhotoIndex(index);
-                          setIsOpen(true);
-                        }}
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-
-              {isOpen && (
-                <ImageLightbox
-                  mainSrc={data?.images[photoIndex]}
-                  nextSrc={data?.images[(photoIndex + 1) % data.images.length]}
-                  prevSrc={
-                    data?.images[
-                      (photoIndex + data.images.length - 1) % data.images.length
-                    ]
-                  }
-                  onCloseRequest={() => setIsOpen(false)}
-                  onMovePrevRequest={() =>
-                    setPhotoIndex(
-                      (photoIndex + data.images.length - 1) % data.images.length
-                    )
-                  }
-                  onMoveNextRequest={() =>
-                    setPhotoIndex((photoIndex + 1) % data.images.length)
-                  }
-                />
-              )}
-
-              <section className="mt-6">
-                {/* Description Section */}
-                <div className="mb-5">
-                  <h4 className="text-[1.8rem] font-semibold mb-4 text-gray-800">
-                    Description
-                  </h4>
-                  <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <p className="text-gray-700 text-[1rem] leading-relaxed">
-                      {data?.description ||
-                        "No description available for this project."}
-                    </p>
-                  </div>
+                {/* Thumbnail Grid */}
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 mt-2">
+                  {data?.images?.map((image, index) => (
+                    <Item
+                      key={`thumb-${index}`}
+                      original={image}
+                      thumbnail={image}
+                      width={1200}
+                      height={800}
+                    >
+                      {({ ref, open }) => (
+                        <div className="aspect-square overflow-hidden rounded-md border border-gray-200 hover:border-gray-400 transition-all cursor-pointer">
+                          <img
+                            ref={ref}
+                            onClick={open}
+                            src={image || "/placeholder.svg"}
+                            alt={`Thumbnail ${index + 1}`}
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      )}
+                    </Item>
+                  ))}
                 </div>
+              </div>
+            </Gallery>
+          </div>
 
-                {/* Short Description Section */}
-                <div>
-                  <h4 className="text-[1.8rem] font-semibold mb-4 text-gray-800">
-                    Short Description
-                  </h4>
-                  <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <p className="text-gray-700 text-[1rem] leading-relaxed">
-                      {data?.short_description ||
-                        "No short description available for this project."}
-                    </p>
-                  </div>
-                </div>
-              </section>
+          {/* Project Title */}
+          <div className="pb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-black text-left capitalize">
+              {data?.title || "Project Details"}
+            </h1>
+          </div>
+
+          {/* Content Sections */}
+          <div className="grid md:grid-cols-1 gap-8">
+            {/* Short Description Section */}
+            <div className="border-b-2 py-8 border-gray-300">
+              <p className="text-gray-950 leading-relaxed">
+                {data?.short_description ||
+                  "No short description available for this project."}
+              </p>
             </div>
-          </>
-        )}
-      </Container>
-    </>
+
+            {/* Description Section */}
+            <div className="">
+              <h2 className="text-2xl font-bold mb-4 text-black">
+                About the Project
+              </h2>
+              <p className="text-gray-950 leading-relaxed">
+                {data?.description ||
+                  "No description available for this project."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default page;
+export default ProjectDetailsPage;

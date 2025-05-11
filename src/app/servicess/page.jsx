@@ -20,7 +20,6 @@ import {
   DiomantCutting,
   Leveling,
 } from "@/components/assets/icons/icon";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import debounce from "debounce";
 import Image from "next/image";
 import Link from "next/link";
@@ -83,7 +82,6 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={t("itemServices")} />
       <Container fluid="xxl" className="mt-[5rem] mb-[4rem]">
         {serviceLoading ? (
           <>
@@ -96,9 +94,13 @@ const Page = () => {
                 {serviceData?.length > 0 ? (
                   <>
                     {serviceData?.map((item, index) => (
-                      <Col  onClick={() => {
-                        HanldeDetail(item);
-                      }} key={index} xl={4}>
+                      <Col
+                        onClick={() => {
+                          HanldeDetail(item);
+                        }}
+                        key={index}
+                        xl={4}
+                      >
                         <div className="bg-white cursor-pointer h-100 relative shadow0 px-[1.2rem] py-[4rem] flex items-center justify-center flex-col">
                           <img
                             src={item?.image}
@@ -172,13 +174,13 @@ const Page = () => {
                       </h5>
                     </div>
                     <h4 className="color-1 max-w-[20rem] bold-font text-[2rem] mt-2">
-                    {t("servicePagesbTitle")}
+                      {t("servicePagesbTitle")}
                     </h4>
                   </div>
                 </Col>
                 <Col xl={6}>
                   <p className="color-4 text-[0.8rem] medium-font">
-                  {t("servicePageDes")}
+                    {t("servicePageDes")}
                   </p>
                 </Col>
               </Row>

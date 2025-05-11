@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -19,6 +18,8 @@ import debounce from "debounce";
 import { message } from "antd";
 import useApiClient from "@/components/ApiFunction/useApiClient";
 import { useTranslation } from "react-i18next";
+import { BiBuilding } from "react-icons/bi";
+
 const Page = () => {
   const { t } = useTranslation();
   const { contactAPi } = ApiFile;
@@ -75,42 +76,40 @@ const Page = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
     <>
-      <BreadCrumbs breadName={t("footerTitle3")} />
-
-      <Container fluid="xxl" className="mb-[4rem]">
+      <Container fluid="xxl" className="mb-[4rem] p-10 drop-shadow-xl">
         <section className="border_19 rounded-[6px]">
           <div className="mb-4">
-            <h4 className="color-0 bebas-regular-font capitalize text-[3rem]">
+            <h4 className="color-0 sm:pb-2 lg:pb-4 bebas-regular-font capitalize sm:text-4xl lg:text-7xl text-center">
               {t("contactPageTitle")}
             </h4>
 
             <section>
               <Row className="g-3">
                 <Col md={12}>
-                  <div className="flex flex-col gap-3 shadow2 py-[20px] px-[10px] h-[100%]">
-                    <p
-                      className={`color-0  regular-font text-[1rem] cursor-pointer ${
-                        !isExpanded ? "max-[558px]:line-clamp-2" : ""
-                      } max-[558px]:text-justify`}
-                    >
+                  <div className="flex flex-col gap-3 py-[20px] sm:px-0 lg:px-[10px] h-[100%] rounded-sm">
+                    <p className="color-0  regular-font text-[1rem] cursor-pointer text-center">
                       {t("contactPageDes")}
                     </p>
-                    <div className="hidden max-[558px]:block">
-                      <button
-                        className="colo-0 medium-font mt-2 self-start"
-                        onClick={() => setIsExpanded(!isExpanded)}
-                      >
-                        {isExpanded ? "See Less" : "See More"}
-                      </button>
-                    </div>
                   </div>
                 </Col>
               </Row>
             </section>
 
-            <Row className="g-3 mt-4">
-              <Col md={12} lg={4} xl={4}>
-                <Row className="g-3 mb-5">
+            <Row className="g-3 mt-4 flex items-start justify-between">
+              <Col md={12} lg={4} xl={4} className="sm:w-full md:w-[30%]">
+                <Row className="mb-5 bg-white rounded-lg">
+                  <Col className="bg-black rounded-t-lg">
+                    <div className="py-[20px] px-[10px] h-[100%]">
+                      <div className="flex items-center gap-3">
+                        <h2>
+                          <BiBuilding className="text-[1.8rem] text-white" />
+                        </h2>
+                        <h2 className="font-semibold text-xl text-white flex items-center">
+                          Our Contact Details
+                        </h2>
+                      </div>
+                    </div>
+                  </Col>
                   <Col
                     className="cursor-pointer"
                     xs={12}
@@ -119,13 +118,13 @@ const Page = () => {
                     lg={12}
                     xl={12}
                   >
-                    <div className="flex gap-3 shadow2 py-[20px] px-[10px] h-[100%]">
+                    <div className="flex items-center gap-3 py-[20px] px-[10px] h-[100%]">
                       <LiaPhoneVolumeSolid className="text-[1.8rem]" />
                       <div className="flex flex-col">
                         <h4 className="semiBold-font text-[0.9rem]  color-0 ">
                           {t("phoneText")}
                         </h4>
-                        <h4 className="medium-font text-[0.8rem] primary-color mt-2">
+                        <h4 className="mediumshadow-font text-[0.8rem] primary-color mt-2">
                           +358 44 747 48 18
                         </h4>
                       </div>
@@ -139,7 +138,7 @@ const Page = () => {
                     lg={12}
                     xl={12}
                   >
-                    <div className="flex gap-3 shadow2 py-[20px] px-[10px] h-[100%]">
+                    <div className="flex items-center gap-3 bg-white py-[20px] px-[10px] h-[100%]">
                       <RiMapPinLine className="text-[1.8rem]" />
                       <div className="flex flex-col">
                         <h4 className="semiBold-font text-[0.9rem] color-0 ">
@@ -159,7 +158,7 @@ const Page = () => {
                     lg={12}
                     xl={12}
                   >
-                    <div className="flex gap-3 shadow2 py-[20px] px-[10px] h-[100%]">
+                    <div className="flex items-center gap-3 bg-white py-[20px] px-[10px] h-[100%]">
                       <MdOutlineMail className="text-[1.8rem]" />
                       <div className="flex flex-col">
                         <h4 className="semiBold-font text-[0.9rem] color-0 ">
@@ -179,7 +178,7 @@ const Page = () => {
                     lg={12}
                     xl={12}
                   >
-                    <div className="flex gap-3 shadow2 py-[20px] px-[10px] h-[100%]">
+                    <div className="flex items-center gap-3 bg-white py-[20px] px-[10px] h-[100%]">
                       <MdOutlineMail className="text-[1.8rem]" />
                       <div className="flex flex-col">
                         <h4 className="semiBold-font text-[0.9rem] color-0 ">
@@ -193,7 +192,13 @@ const Page = () => {
                   </Col>
                 </Row>
               </Col>
-              <Col md={12} lg={8} xl={8}>
+              {/* Form Section */}
+              <Col
+                md={12}
+                lg={8}
+                xl={8}
+                className="bg-white px-[0.7rem] pb-3 rounded-lg"
+              >
                 <Formik
                   initialValues={initialValues}
                   validationSchema={validationSchema}
@@ -218,10 +223,21 @@ const Page = () => {
 
                     return (
                       <Form>
+                        <Row className="bg-black py-4 mb-2 rounded-t-xl">
+                          <Col>
+                            <h2 className="text-xl font-semibold text-white">
+                              Send Us a Message
+                            </h2>
+                            <p className="text-slate-200 text-sm">
+                              Fill out the form below and we'll get back to you
+                              as soon as possible
+                            </p>
+                          </Col>
+                        </Row>
                         <div className="mb-3 custom_control">
                           <Field
                             name="name"
-                            placeholder="Name*"
+                            placeholder="Your name"
                             className="form-control borderCus"
                             type="text"
                           />
@@ -235,7 +251,7 @@ const Page = () => {
                         <div className="mb-3 custom_control">
                           <Field
                             className="form-control borderCus"
-                            placeholder="Email*"
+                            placeholder="Your email address"
                             name="email"
                             type="email"
                           />
@@ -296,7 +312,7 @@ const Page = () => {
 
                         <button
                           type="submit"
-                          className="primary-bg w-100 text-white text-[1rem] bold-font py-[10px] rounded-[10px] mt-3"
+                          className="primary-bg w-100 text-white text-[1rem] font-semibold py-[10px] rounded-[10px] mt-3"
                           disabled={isLoading}
                         >
                           {isLoading ? (
