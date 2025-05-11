@@ -61,6 +61,13 @@ export default {
     "Our concrete grinding services offer a precise and efficient solution to smooth, level, and polish concrete surfaces, transforming rough or uneven areas into flawless, durable finishes. Utilizing advanced equipment and techniques, we can remove surface imperfections, stains, and old coatings, preparing the concrete for sealing or further treatment. Whether it’s for industrial floors, commercial spaces, or residential properties, our skilled team delivers results that enhance both the appearance and performance of your concrete. Trust our expertise to deliver exceptional quality, improved surface durability, and a sleek, professional look that meets the highest standards",
   serviceDetail: "Service Detail",
   gallery: "Show Gallery",
+  ourExpertise: "Our Expertise",
+  expertiseDescription:
+    "Qyp delivers expert concrete grinding, cutting, and chipping services using modern techniques and top-grade materials. We focus on custom solutions, long-lasting results, and total client satisfaction.",
+  readyToStart: "Ready to Start Your Project?",
+  ctaDescription:
+    "Contact Qyp today for reliable, high-quality concrete solutions tailored to your needs. Let's build something strong together.",
+  getInTouch: "Get In Touch",
 
   // abouts us page
   aboutUsPageTitle: "About our Company",
