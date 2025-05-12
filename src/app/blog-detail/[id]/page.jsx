@@ -4,7 +4,6 @@
 "use client";
 import ApiFile from "@/components/ApiFunction/ApiFile";
 import useApiClient from "@/components/ApiFunction/useApiClient";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import { selectblog } from "@/components/Redux/Slices/blogSlice";
 import debounce from "debounce";
 import { Autoplay, Navigation } from "swiper";
@@ -61,8 +60,6 @@ const page = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={"Blog Detail"} />
-
       <Container className="mb-5" fluid="xxl">
         <h1 className="text-[2rem] semiBold-font mb-3 text-center capitalize">
           {blogData?.title}

@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
@@ -92,8 +91,6 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={"All Instruments"} />
-
       <Container className="mb-5" fluid="xxl">
         <h4 className="color-1 capitalize bold-font mb-4 text-[2rem] mt-2">
           Our All Instruments

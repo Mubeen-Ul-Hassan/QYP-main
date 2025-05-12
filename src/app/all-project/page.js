@@ -5,7 +5,6 @@
 import ApiFile from "@/components/ApiFunction/ApiFile";
 import useApiClient from "@/components/ApiFunction/useApiClient";
 import { Image1 } from "@/components/assets/icons/icon";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import debounce from "debounce";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -65,7 +64,6 @@ const Page = () => {
   };
   return (
     <>
-      <BreadCrumbs breadName={"Project"} />
       <Container fluid="xxl" className="mt-0">
         <h4 className="color-1 bold-font text-[2rem] capitalize mt-2">
           All Projects

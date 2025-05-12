@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import { Button, Col, Container, Modal, Row, Spinner } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -212,8 +211,6 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={"CheckOut"} />
-
       <Container className="mb-5" fluid="xxl">
         <section>
           <Row className="g-3">

@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import React, { Suspense, useEffect, useState } from "react";
 import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -93,8 +92,6 @@ const CourceForm = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={"Course Form"} />
-
       <Container fluid="xxl" className="mb-[4rem]">
         <section className="border_19 rounded-[6px] py-[2rem]">
           <div className="mb-4">

@@ -3,7 +3,6 @@
 "use client";
 import ApiFile from "@/components/ApiFunction/ApiFile";
 import useApiClient from "@/components/ApiFunction/useApiClient";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import ProductTable from "@/components/dataTable/table";
 import debounce from "debounce";
 import React, { useEffect, useState } from "react";
@@ -89,8 +88,6 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={"My Order"} />
-
       <Container className="mb-5" fluid="xxl">
         <ProductTable
           rowHeading={""}

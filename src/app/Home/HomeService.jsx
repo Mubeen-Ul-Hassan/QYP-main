@@ -1,37 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react-hooks/exhaustive-deps */
-import ApiFile from "@/components/ApiFunction/ApiFile";
-import useApiClient from "@/components/ApiFunction/useApiClient";
-import {
-  ConcretePolishing,
-  CuttingIcon,
-  Demoimg1,
-  Demoimg2,
-  Demoimg3,
-  Demoimg4,
-  FloorGrinding,
-  Grinding,
-  GrindingIcon,
-  HomeBg,
-  serviceimg,
-  SpikingIcon,
-} from "@/components/assets/icons/icon";
-import debounce from "debounce";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import {
-  FaArrowLeft,
-  FaArrowRight,
-  FaQuoteLeft,
-  FaQuoteRight,
-} from "react-icons/fa";
-import { message, Skeleton } from "antd";
-import Slider from "react-slick";
-import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
+import Slider from "react-slick";
+import { message, Skeleton } from "antd";
+import debounce from "debounce";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+import ApiFile from "@/components/ApiFunction/ApiFile";
+import useApiClient from "@/components/ApiFunction/useApiClient";
+import { HomeBg, serviceimg } from "@/components/assets/icons/icon";
 
 const HomeService = () => {
   const { t } = useTranslation();
@@ -41,37 +22,37 @@ const HomeService = () => {
   const sliderRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
   const [serviceData, setServiceData] = useState([]);
+
   const PreviousArrow = (props) => {
     const { className, style, onClick } = props;
     return (
       <button
         type="button"
-        className={className}
-        style={{ ...style, display: "block", bottom: "7rem", zIndex: 1 }}
+        className="absolute left-4 bottom-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-all hover:bg-gray-100"
         onClick={onClick}
+        aria-label="Previous slide"
       >
-        <FaArrowLeft /> {/* Left arrow icon */}
+        <FaArrowLeft className="text-gray-700" />
       </button>
     );
   };
 
-  // Custom next button component
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
       <button
         type="button"
-        className={className}
-        style={{ ...style, display: "block", bottom: "7rem", zIndex: 1 }}
+        className="absolute right-4 bottom-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-all hover:bg-gray-100"
         onClick={onClick}
+        aria-label="Next slide"
       >
-        <FaArrowRight /> {/* Right arrow icon */}
+        <FaArrowRight className="text-gray-700" />
       </button>
     );
   };
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
@@ -125,128 +106,143 @@ const HomeService = () => {
     router.push(`/servicess`);
   };
 
+  if (isLoading) {
+    return (
+      <div className="container mx-auto px-4 py-12">
+        <Skeleton active paragraph={{ rows: 10 }} />
+      </div>
+    );
+  }
+
   return (
-    <>
-      {isLoading ? (
-        <>
-          <Skeleton />
-        </>
-      ) : (
-        <>
-          <Container fluid="xxl" className="mb-5 mt-5">
-            <div className="flex items-center justify-center flex-col">
-              <div className="relative">
-                <Image className="h-[4rem] w-[24rem]" src={serviceimg} alt="" />
-                <h5 className="absolute inset-0 uppercase flex items-center justify-center color-1 regular-font text-[1.2rem]">
-                  {t("servicesTitle")}
-                </h5>
-              </div>
-              <h4 className="color-1 bold-font text-[2rem] mt-2">
-                {t("servicesHead")}
-              </h4>
-            </div>
-          </Container>
-          {serviceData?.length > 0 ? (
-            <>
-              <section className="bg-0 mb-5 py-[20px]">
-                <Container fluid="xxl" className="mb-5 relative">
-                  <section className="sec-bg mb-5 py-[4rem]">
-                    <Container fluid="xxl">
-                      <section className="relative slider-container">
-                        <div className="underline">
-                          <Link
-                            href={"/servicess"}
-                            className="mb-4 flex color-1 medium-font justify-end cursor-pointer"
-                          >
-                            {t("seeMore")}
-                          </Link>
-                        </div>
-                        <Slider
-                          className="sliderCus"
-                          ref={sliderRef}
-                          {...settings}
-                        >
-                          {serviceData?.length > 0 &&
-                            serviceData?.map((item, index) => (
-                              <div
-                                onClick={(e) => {
-                                  // handleServiceNavi();
-                                  HanldeDetail(item);
-                                  e.stopPropagation();
-                                }}
-                                key={index}
-                              >
-                                <div className="bg-white cursor-pointer h-100 mb-[4rem] mr-5 relative px-[2rem] py-[4rem] rounded-[10px] flex items-center justify-center flex-col">
-                                  <img
-                                    src={item?.image}
-                                    className="h-[6rem] w-[6rem] mb-3 object-contain"
-                                    alt=""
-                                  />
-                                  <h4 className="color-0 line-clamp-2 text-center w-100 capitalize mb-4 text-[1.3rem] bold-font border_6 pb-3">
-                                    {item?.title}
-                                  </h4>
-                                  <h5 className="color-4 w-100 line-clamp-2 leading-9 text-center regular-font text-[1.2rem]">
-                                    {item?.description}
-                                  </h5>
+    <div className="bg-white">
+      {/* Services Header Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <div className="relative inline-block mb-4">
+            <Image
+              className="h-16 w-96"
+              src={serviceimg || "/placeholder.svg"}
+              alt=""
+            />
+            <h5 className="absolute inset-0 flex items-center justify-center text-lg font-medium uppercase tracking-wide text-black">
+              {t("servicesTitle")}
+            </h5>
+          </div>
+          <h2 className="text-4xl font-bold text-black mb-4">
+            {t("servicesHead")}
+          </h2>
+          <div className="w-24 h-1 bg-black mx-auto"></div>
+        </div>
+      </section>
 
-                                  {/* <div
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      HanldeDetail(item);
-                                    }}
-                                    className="primary-bg rounded-[10px] px-[35px] cursor-pointer absolute bottom-[-1.8rem] py-[17px] text-white medium-font"
-                                  >
-                                    {t("readMore")}
-                                  </div> */}
-                                </div>
-                              </div>
-                            ))}
-                        </Slider>
-                      </section>
-                    </Container>
-                  </section>
-
-                  <div className="mt-[6rem] flex flex-col lg:flex-row items-center  gap-4">
-                    <div className="flex flex-col">
-                      <h4 className="bold-font color-1 text-[1.7rem]">
-                        {t("homeServiceTitle")}
-                      </h4>
-                      <h5 className="color-4 text-[1rem] mt-2 regular-font">
-                        {t("homeServiceDes")}
-                      </h5>
-                    </div>
-                    <Link
-                      href={"/servicess"}
-                      className="primary-bg cursor-pointer rounded-[6px] py-[10px] px-[20px] text-[0.8rem] medium-font w-fit text-white"
-                    >
-                      {t("homeServicebtn")}
-                    </Link>
-                  </div>
-                </Container>
-              </section>
-            </>
-          ) : (
-            ""
-          )}
-          <section className="mb-5">
-            <div className="relative">
-              <Image className="h-[25rem] w-[100%]" src={HomeBg} alt="" />
+      {/* Services Slider Section */}
+      {serviceData?.length > 0 && (
+        <section className="bg-gray-50 py-16">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-end items-center mb-8">
+              {/* <h3 className="text-2xl font-bold text-gray-800">
+                {t("Our Services")}
+              </h3> */}
               <Link
-                href={"/category-instruments/all"}
-                className="absolute inset-0 flex flex-col gap-3 items-center justify-center"
+                href="/servicess"
+                className="text-black font-medium transition-colors flex items-center gap-2"
               >
-                <h4 className="medium-font max-w-[26rem] text-center capitalize text-white text-[2rem]">
-                  {t("homeServicesbDes")}
-                </h4>
-                <div className="bg-white cursor-pointer rounded-[6px] px-[30px] py-[10px] color-1 medium-font text-[1.2rem]">
-                  {t("getStarted")}
-                </div>
+                {t("seeMore")}
+                <FaArrowRight className="text-sm" />
               </Link>
             </div>
-          </section>
-        </>
+
+            <div className="relative px-4">
+              <Slider
+                ref={sliderRef}
+                {...settings}
+                className="service-slider -mx-4"
+              >
+                {serviceData.map((item, index) => (
+                  <div key={index} className="px-4">
+                    <div
+                      onClick={() => HanldeDetail(item)}
+                      className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 h-80 cursor-pointer"
+                    >
+                      <div className="p-6 h-full flex flex-col">
+                        <div className="mb-4 flex justify-center">
+                          <div className="w-28 h-28 rounded-full bg-white flex items-center justify-center p-4 mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                            <img
+                              src={item?.image || "/placeholder.svg"}
+                              className="h-full w-full object-contain"
+                              alt={item?.title || "Service"}
+                            />
+                          </div>
+                        </div>
+
+                        <h4 className="text-xl font-bold text-gray-800 text-center mb-4 capitalize  transition-colors">
+                          {item?.title}
+                        </h4>
+
+                        <div className="w-16 h-0.5 bg-black mx-auto mb-4"></div>
+
+                        {/* <p className="text-gray-600 text-center line-clamp-3 mb-6 flex-grow">
+                          {item?.description}
+                        </p> */}
+
+                        <div className="mt-auto text-center">
+                          <span className="inline-block px-4 py-2 rounded-lg bg-black text-white font-medium text-sm group-hover:bg-white group-hover:text-black transition-all duration-300">
+                            {t("readMore")}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          </div>
+        </section>
       )}
-    </>
+
+      {/* Call to Action Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+              {t("homeServiceTitle")}
+            </h3>
+            <p className="text-gray-600 text-lg mb-6">{t("homeServiceDes")}</p>
+          </div>
+          <Link
+            href="/servicess"
+            className="bg-black hover:bg-emerald-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300 whitespace-nowrap text-center"
+          >
+            {t("homeServicebtn")}
+          </Link>
+        </div>
+      </section>
+
+      {/* Banner Section */}
+      <section className="relative mt-16 mb-16">
+        <div className="relative h-[400px] w-full">
+          <Image
+            src={HomeBg || "/placeholder.svg"}
+            alt="Services background"
+            fill
+            className="object-cover brightness-75"
+          />
+          <div className="absolute inset-0 bg-emerald-900/30"></div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
+            <h3 className="text-white text-3xl md:text-4xl font-bold text-center max-w-2xl mb-8">
+              {t("homeServicesbDes")}
+            </h3>
+            <Link
+              href="/category-instruments/all"
+              className="bg-white hover:bg-gray-100 text-black font-medium py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              {t("getStarted")}
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 

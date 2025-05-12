@@ -4,7 +4,6 @@
 import ApiFile from "@/components/ApiFunction/ApiFile";
 import useApiClient from "@/components/ApiFunction/useApiClient";
 import { company1 } from "@/components/assets/icons/icon";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import ProductTable from "@/components/dataTable/productTable";
 import {
   decrementQuantity,
@@ -174,7 +173,7 @@ const Page = () => {
         if (res?.success) {
           message.success("Out Of Stock Products Remove");
           const checkData = res?.availability;
-          
+
           if (checkData?.length > 0) {
             checkData.forEach((item) => {
               if (!item?.available) {
@@ -212,7 +211,6 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={"Cart"} />
       <Container className="mb-5" fluid="xxl">
         <section>
           <ProductTable

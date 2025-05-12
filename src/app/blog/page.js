@@ -9,7 +9,6 @@ import {
   HomeImg,
 } from "@/components/assets/icons/icon";
 import Blog from "@/components/Blog/Blog";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import debounce from "debounce";
 import React, { useEffect, useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
@@ -62,7 +61,6 @@ const Page = () => {
 
   return (
     <>
-      <BreadCrumbs breadName={"blog"} />
       <Container fluid="xxl" className="mt-[5rem] mb-[2rem]">
         <Blog blogData={blogData} isLoading={isLoading} />
 
@@ -76,9 +74,7 @@ const Page = () => {
                 <Spinner size="sm" />
               </>
             ) : (
-             <>
-             {t("seeMore")}
-             </>
+              <>{t("seeMore")}</>
             )}
           </div>
         </section>
