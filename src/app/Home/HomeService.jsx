@@ -141,7 +141,7 @@ const HomeService = () => {
         <section className="bg-gray-50 py-16">
           <div className="container mx-auto px-4">
             <div className="flex justify-end items-center mb-8">
-              {/* <h3 className="text-2xl font-bold text-gray-800">
+              {/* <h3 className="text-xl font-bold text-gray-800">
                 {t("Our Services")}
               </h3> */}
               <Link
@@ -167,7 +167,7 @@ const HomeService = () => {
                     >
                       <div className="p-6 h-full flex flex-col">
                         <div className="mb-4 flex justify-center">
-                          <div className="w-28 h-28 rounded-full bg-white flex items-center justify-center p-4 mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-2 transform group-hover:scale-110 transition-transform duration-300">
                             <img
                               src={item?.image || "/placeholder.svg"}
                               className="h-full w-full object-contain"
@@ -176,15 +176,15 @@ const HomeService = () => {
                           </div>
                         </div>
 
-                        <h4 className="text-xl font-bold text-gray-800 text-center mb-4 capitalize  transition-colors">
+                        <h4 className="text-xl font-bold text-gray-800 text-center mb-1 capitalize  transition-colors">
                           {item?.title}
                         </h4>
 
-                        <div className="w-16 h-0.5 bg-black mx-auto mb-4"></div>
+                        {/* <div className="w-16 h-0.5 bg-black mx-auto mb-4"></div> */}
 
-                        {/* <p className="text-gray-600 text-center line-clamp-3 mb-6 flex-grow">
+                        <p className="text-sm text-black text-center h-2 mb-2 line-clamp-3 flex-grow">
                           {item?.description}
-                        </p> */}
+                        </p>
 
                         <div className="mt-auto text-center">
                           <span className="inline-block px-4 py-2 rounded-lg bg-black text-white font-medium text-sm group-hover:bg-white group-hover:text-black transition-all duration-300">
